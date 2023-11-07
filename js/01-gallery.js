@@ -28,20 +28,17 @@ const handleGalleryClick = (event) => {
   if (event.target.nodeName !== "IMG") {
     return;
   }
-
   const urlOriginal = event.target.dataset.source;
-
   const instance = basicLightbox.create(`<img src="${urlOriginal}">`);
   instance.show();
 
-  const handleOnEscKeyPress = () => {
+  window.addEventListener("keydown", handleOnEscKeyPress);
+
+  function handleOnEscKeyPress(event) {
     if (event.key === "Escape") {
       instance.close();
-      window.removeEventListener("keydown", handleOnEscKeyPress);
     }
-  };
-
-  window.addEventListener("keydown", handleOnEscKeyPress);
+  }
 };
 
 galleryList.addEventListener("click", handleGalleryClick);
