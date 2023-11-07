@@ -33,6 +33,7 @@ const handleGalleryClick = (event) => {
 
   const instance = basicLightbox.create(`<img src="${urlOriginal}">`);
   instance.show();
+  window.addEventListener("keydown", handleOnEscKeyPress);
 
   const handleOnEscKeyPress = () => {
     if (event.key === "Escape") {
@@ -40,8 +41,6 @@ const handleGalleryClick = (event) => {
       window.removeEventListener("keydown", handleOnEscKeyPress);
     }
   };
-
-  window.addEventListener("keydown", handleOnEscKeyPress);
 };
 
 galleryList.addEventListener("click", handleGalleryClick);
