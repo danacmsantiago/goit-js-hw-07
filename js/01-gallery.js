@@ -37,6 +37,7 @@ const handleGalleryClick = (event) => {
   function handleOnEscKeyPress(event) {
     if (event.key === "Escape") {
       instance.close();
+      window.removeEventListener("keydown", handleOnEscKeyPress);
     }
   }
 };
